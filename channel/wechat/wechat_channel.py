@@ -145,7 +145,7 @@ class WechatChannel(Channel):
         context['from_user_id'] = msg['ActualUserName']
         reply_text = super().build_reply_content(query, context)
         if reply_text:
-            reply_text = '@' + msg['ActualNickName'] + ' ' + reply_text.strip()
+            reply_text = '@' + msg['ActualNickName'] + '\n' + reply_text.strip()
             self.send(conf().get("group_chat_reply_prefix", "") + reply_text, msg['User']['UserName'])
 
 
